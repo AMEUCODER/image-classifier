@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+output/
+
+# private photos and trained models: do not publish
+Faces/train/*/
+Faces/val/*
+!Faces/val/README.txt
+models/*.yml
+models/*.yml.bak
+models/faces_labels.json

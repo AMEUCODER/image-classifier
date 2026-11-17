@@ -1,0 +1,38 @@
+filters:
+  and:
+    - file.hasTag("classifier")
+    - file.hasTag("image-sorter")
+formulas:
+  days_since_update: "(now() - date(updated)).days"
+properties:
+  file.name:
+    displayName: Note
+  classifier:
+    displayName: Classifier
+  status:
+    displayName: Status
+  model:
+    displayName: Model
+  updated:
+    displayName: Updated
+  formula.days_since_update:
+    displayName: Days since update
+views:
+  - type: table
+    name: All classifiers
+    order:
+      - file.name
+      - classifier
+      - status
+      - model
+      - updated
+      - formula.days_since_update
+  - type: table
+    name: Still in progress
+    filters:
+      and:
+        - 'status == "in-progress"'
+    order:
+      - file.name
+      - classifier
+      - model
